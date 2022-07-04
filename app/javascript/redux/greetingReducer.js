@@ -10,6 +10,7 @@ const initialState = '';
 export const fetchGreetings = () => async (dispatch) => {
   const response = await fetch('/v1/message');
   const payload = await response.json();
+  console.log(payload);
   dispatch(getGreeting(payload));
 };
 
