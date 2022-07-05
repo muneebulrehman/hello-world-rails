@@ -7,14 +7,11 @@ import store from '../redux/configureStore';
 const App = () => {
   return (
     <Provider store={store}>
-      <React.Fragment>
-        <h1>Home page</h1>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/greeting" element={<Greeting />} />
-          </Routes>
-        </BrowserRouter>
-      </React.Fragment>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/greeting" element={<Greeting />} />
+        </Routes>
+      </BrowserRouter>
     </Provider>
   );
 };

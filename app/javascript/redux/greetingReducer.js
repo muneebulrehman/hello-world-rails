@@ -5,19 +5,23 @@ const getGreeting = (payload) => ({
   payload
 });
 
-const initialState = '';
+const initialState = {
+  message: ''
+};
 
 export const fetchGreetings = () => async (dispatch) => {
   const response = await fetch('/v1/message');
   const payload = await response.json();
-  console.log(payload);
-  dispatch(getGreeting(payload));
+  dispatch(getGreeting(payload.message));
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_GREETING:
-      return action.payload;
+      return {
+        ...state,
+        message: action.payload
+      };
     default:
       return state;
   }
